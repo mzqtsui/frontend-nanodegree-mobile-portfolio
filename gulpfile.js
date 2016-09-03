@@ -119,6 +119,7 @@ gulp.task('watch', function() {
     gulp.watch(paths.styles, ['styles']);
     gulp.watch(paths.content, ['content','critical']);
     gulp.watch(paths.images, ['images']);
+    gulp.watch('src/views/js/*', ['views']);
 });
 
 gulp.task('webserver', function() {
