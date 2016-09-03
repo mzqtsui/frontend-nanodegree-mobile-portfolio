@@ -95,6 +95,20 @@ gulp.task('content', function(){
 
 gulp.task('images', function() {
     return gulp.src(paths.images)
+        .pipe(responsive({
+            '*.jpg': [
+            {
+                width: '100%'
+            }],
+            '*.png': [
+            {
+                width: '100%'
+            }]
+        },
+        {
+            quality: 50,
+            withMetadata: false
+        }))
         .pipe(gulp.dest('dist/img'));
 });
 
