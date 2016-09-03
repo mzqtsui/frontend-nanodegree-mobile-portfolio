@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     babel = require('gulp-babel'),
     webserver = require('gulp-webserver'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    responsive = require('gulp-responsive');
 
 
 var paths = {
@@ -29,6 +30,33 @@ gulp.task('views', function() {
         .pipe(gulp.dest('dist/views/js'));
 
     gulp.src('src/views/images/*')
+        .pipe(responsive({
+            'pizzeria.jpg': [
+            {
+                width: 100,
+                rename: { suffix: '_100'}
+            },
+            {
+                width: 320,
+                rename: { suffix: '_320'}
+            },
+            {
+                width: 480,
+                rename: { suffix: '_480'}
+            },
+            {
+                width: 960,
+                rename: { suffix: '_960'}
+            }],
+            'pizza.png': [
+            {
+                width: '100%'
+            }]
+        },
+        {
+            quality: 50,
+            withMetadata: false
+        }))
         .pipe(gulp.dest('dist/views/images/'));
 
     gulp.src('src/views/css/*.css')
