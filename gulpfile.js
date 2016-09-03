@@ -24,6 +24,7 @@ var paths = {
 gulp.task('views', function() {
     gulp.src('src/views/*.html')
         .pipe(minifyhtml())
+        .pipe(critical({base: 'dist/views',  inline: true, minify: true}))
         .pipe(gulp.dest('dist/views'));
 
     gulp.src('src/views/js/main.js')
@@ -130,7 +131,7 @@ gulp.task('webserver', function() {
 
 gulp.task('critical', function() {
     return gulp.src('dist/*.html')
-        .pipe(critical({base: 'dist/', minify: true, inline: true, css: ['dist/css/style.css']}))
+        .pipe(critical({base: 'dist/',  inline: true, minify: true}))
         .pipe(gulp.dest('dist/'));
 });
 
