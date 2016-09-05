@@ -48,6 +48,10 @@ gulp.task('view-images', function() {
             'pizza.png': [
             {
                 width: '100%'
+            },
+            {
+                width: 80,
+                rename: { suffix: '_80' }
             }]
         },
         {

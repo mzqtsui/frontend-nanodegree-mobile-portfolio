@@ -33,8 +33,7 @@ form {
   position: fixed;
   width: 80px;
   height: 103px;
-  background-image: url("../images/pizza.png");
-  background-size: 80px 103px;
+  background-image: url("../images/pizza_80.png");
   z-index: -1;
 }
 
@@ -50,7 +49,7 @@ form {
 }
 
 .pizzaDescriptionContainer {
-  width: 35%;
+  width: 65%;
 }
 
 .randomPizzaContainer:after {
@@ -59,6 +58,27 @@ form {
   clear:both;
 }
 
- .container {
+.container {
   background-color: rgba(240, 60, 60, 0.8);
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 2px;
+  margin: 8px;
+}
+
+nav a {
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  background: rgba(0,0,0,0.5);
+  color: white;
 }
