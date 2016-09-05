@@ -64,7 +64,7 @@ gulp.task('view-images', function() {
 
 gulp.task('views', function() {
     gulp.src('src/views/pizza.html')
-        .pipe(critical({base: 'dist/views',  inline: true, minify: true, inlineImages: true}))
+        // .pipe(critical({base: 'dist/views',  inline: true, minify: true, inlineImages: true}))
         .pipe(minifyhtml())
         .pipe(gulp.dest('dist/views'));
 
