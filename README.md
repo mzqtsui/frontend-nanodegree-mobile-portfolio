@@ -16,7 +16,7 @@
 - changePizzaSizes changes width % rather than px conversion
 - `<template>`-based pizza generation
 - `document.body.scrollTop` only called once in `updatePositions()`
-- 'selectRandomThing()' to replace multiple selectRandom functions that do basically the same thing
+- 'selectRandomIngredient()' to replace multiple selectRandom functions that do basically the same thing
 
 ###### `views/pizza.html`
 - removed manually-inserted inline styles

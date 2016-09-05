@@ -303,7 +303,7 @@ function randomName() {
 }
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
-var selectRandomThing = function(thing) {
+var selectRandomIngredient = function(thing) {
   return pizzaIngredients[thing][Math.floor((Math.random() * pizzaIngredients[thing].length))];
 };
 
@@ -320,19 +320,19 @@ var makeRandomPizza = function() {
   var numberOfCheeses = Math.floor((Math.random() * 2));
 
   for (var i = 0; i < numberOfMeats; i++) {
-    pizza = pizza + ingredientItemizer(selectRandomThing('meats'));
+    pizza = pizza + ingredientItemizer(selectRandomIngredient('meats'));
   }
 
   for (var j = 0; j < numberOfNonMeats; j++) {
-    pizza = pizza + ingredientItemizer(selectRandomThing('nonMeats'));
+    pizza = pizza + ingredientItemizer(selectRandomIngredient('nonMeats'));
   }
 
   for (var k = 0; k < numberOfCheeses; k++) {
-    pizza = pizza + ingredientItemizer(selectRandomThing('cheeses'));
+    pizza = pizza + ingredientItemizer(selectRandomIngredient('cheeses'));
   }
 
-  pizza = pizza + ingredientItemizer(selectRandomThing('sauces'));
-  pizza = pizza + ingredientItemizer(selectRandomThing('crusts'));
+  pizza = pizza + ingredientItemizer(selectRandomIngredient('sauces'));
+  pizza = pizza + ingredientItemizer(selectRandomIngredient('crusts'));
 
   return pizza;
 };
