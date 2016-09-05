@@ -3,7 +3,8 @@
 ### Getting started
 1. Install npm
 2. Run `npm install` in root directory
-3. Open `localhost:9000` in a browser
+3. Run `gulp`
+4. Open `localhost:9000` in a browser
 
 ### Optimizations
 ###### `index.html`
