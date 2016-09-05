@@ -3,7 +3,6 @@
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     minifyhtml = require('gulp-minify-html'),
     cleancss = require('gulp-clean-css'),
@@ -16,7 +15,7 @@ var gulp = require('gulp'),
 
 var paths = {
     scripts: ['src/js/**/*.js'],
-    styles: ['src/css/**/*.scss'],
+    styles: ['src/css/**/*.css'],
     images: ['src/img/**/*'],
     content: ['src/*.html']
 }
@@ -92,7 +91,6 @@ gulp.task('scripts', function() {
 
 gulp.task('styles', function() {
     gulp.src(paths.styles)
-        .pipe(sass({ outputStyle: 'compressed'}))
         .pipe(cleancss())
         .pipe(gulp.dest('dist/css'));
 });
