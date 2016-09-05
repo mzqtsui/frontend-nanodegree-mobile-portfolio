@@ -379,7 +379,7 @@ var pizzaElementGenerator = function(i) {
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
 
   pizzaImage = document.createElement("img");
-  pizzaImage.src = "images/pizza.png";
+  pizzaImage.src = "images/pizza_140.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
