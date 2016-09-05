@@ -1,11 +1,25 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cam's Pizzeria</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/bootstrap-grid.css">
 </head>
-
 <body>
+  <template id="pizzaTemplate">
+    <section class="randomPizzaContainer">
+      <picture class="pizzaImageContainer">
+        <img src="images/pizza.png" class="img-responsive">
+      </picture>
+      <div class="pizzaDescriptionContainer">
+        <h4 class="pizzaName"></h4>
+        <ul class="pizzaIngredients">
+        </ul>
+      </div>
+    </section>
+  </template>
   <main class="container">
     <header class="row">
       <div class="col-md-12">
@@ -21,7 +35,7 @@
       </div>
     </header>
     <aside id="movingPizzas1" class="row"></aside>
-    <div id="callToAction" class="row">
+    <article id="callToAction" class="row">
       <div class="col-md-4">
         <picture>
           <img src="images/pizzeria_480.jpg" class="img-responsive"> <!-- Image credit to: http://commons.wikimedia.org/wiki/File:HK_TST_night_%E5%98%89%E8%98%AD%E9%81%93_Granville_Road_restaurant_Paisano's_Pizzeria_pizza_Dec-2013.JPG -->
@@ -35,90 +49,79 @@
 
         <button href="#randomPizzas">Pick a Pizza now!</button>
       </div>
-    </div>
-    <div id="ingredients" class="row">
-      <div class="col-md-8 col-md-push-2">
-        <div class="row">
-          <div class="col-md-12 centered">
-            <h2>Ingredients!</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <p>We've scoured the planet for the best pizza ingredients. Our crack team of ingredient specialists are on constant lookout for new and interesting pizza ingredients.</p>
+    </article>
+    <article id="ingredients" class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="centered">Ingredients!</h2>
+        <p>We've scoured the planet for the best pizza ingredients. Our crack team of ingredient specialists are on constant lookout for new and interesting pizza ingredients.</p>
 
-            <p>We have classic meats like pepperoni, sausage, and barbecue chicken. But you can find even more fun meats like coppa, kielbasa and soylent green on our menu too.</p>
+        <p>We have classic meats like pepperoni, sausage, and barbecue chicken. But you can find even more fun meats like coppa, kielbasa and soylent green on our menu too.</p>
 
-            <p>Not interested in meat? No problem! We love our veggies too :) We have everything from arugula to zucchini.</p>
-          </div>
-        </div>
+        <p>Not interested in meat? No problem! We love our veggies too :) We have everything from arugula to zucchini.</p>
       </div>
-    </div>
-    <div id="locations" class="row">
-      <div class="col-md-12">
-        <h2 style="text-align: center">Locations!</h2>
+    </article>
+    <article id="locations" class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2 class="centered">Locations!</h2>
         <div class="row">
-          <div class="col-md-6">
+          <address class="col-md-6">
             <h3>Pizza Road</h3>
-            <p>1800 Pizza Road<br>San Francisco, CA<br>01010<br>555-555-5555</p>
-          </div>
-          <div class="col-md-6">
+            <p>1800 Pizza Road<br>
+            San Francisco, CA<br>
+            01010<br>555-555-5555</p>
+          </address>
+          <address class="col-md-6">
             <h3>Classic Pie Way</h3>
-            <p>999 Classic Pie Way<br>New York, NY<br>00100<br>555-555-5555</p>
-          </div>
+            <p>999 Classic Pie Way<br>
+            New York, NY<br>
+            00100<br>
+            555-555-5555</p>
+          </address>
         </div>
       </div>
-    </div>
-    <div id="pizzaGenerator" class="row">
+    </article>
+    <article id="pizzaGenerator" class="row">
       <div class="col-md-12">
-        <h2 style="text-align: center">Our Pizzas!</h2>
-        <div class="row">
-          <div class="col-md-12">
-            <em>What size pizza would you like? Use the slider below to change pizza sizes.</em>
-          </div>
-          <div id="pizzaSize" class="col-md-6">Medium</div>
-          <div class="col-md-12">
-            <input id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)"></input>
-          </div>
-        </div>
-        <div id="randomPizzas" class="row">
-          <div id="pizza0" class="randomPizzaContainer" style="width:33.33%; height: 325px;">
-            <div style="width:35%">
-              <img src="images/pizza.png" class="img-responsive">
-            </div>
-            <div style="width:65%">
-              <h4>The Udacity Special</h4>
-              <ul>
-                <li>Turkey</li>
-                <li>Tofu</li>
-                <li>Cauliflower</li>
-                <li>Sun Dried Tomatoes</li>
-                <li>Velveeta Cheese</li>
-                <li>Red Sauce</li>
-                <li>Whole Wheat Crust</li>
-              </ul>
-            </div>
-          </div>
-          <div id="pizza1" class="randomPizzaContainer" style="width:33.33%; height: 325px;">
-            <div style="width:35%">
-              <img src="images/pizza.png" class="img-responsive">
-            </div>
-            <div style="width:65%">
-              <h4>The Cameron Special</h4>
-              <ul>
-                <li>Chicken</li>
-                <li>Hot Sauce</li>
-                <li>White Crust</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <h2 class="centered">Our Pizzas!</h2>
+        <p><em>What size pizza would you like? Use the slider below to change pizza sizes.</em></p>
+        <div id="pizzaSize">Medium</div>
+        <input id="sizeSlider" type="range" min="1" max="3" value="2" step="1" onchange="resizePizzas(this.value)"></input>
       </div>
-    </div>
+    </article>
+    <article id="randomPizzas" class="row">
+      <div id="pizza0" class="randomPizzaContainer">
+          <div class="pizzaImageContainer">
+            <img src="images/pizza.png" class="img-responsive">
+          </div>
+          <div class="pizzaDescriptionContainer">
+            <h4>The Udacity Special</h4>
+            <ul>
+              <li>Turkey</li>
+              <li>Tofu</li>
+              <li>Cauliflower</li>
+              <li>Sun Dried Tomatoes</li>
+              <li>Velveeta Cheese</li>
+              <li>Red Sauce</li>
+              <li>Whole Wheat Crust</li>
+            </ul>
+          </div>
+        </div>
+        <div id="pizza1" class="randomPizzaContainer">
+          <div class="pizzaImageContainer">
+            <img src="images/pizza.png" class="img-responsive">
+          </div>
+          <div class="pizzaDescriptionContainer">
+            <h4>The Cameron Special</h4>
+            <ul>
+              <li>Chicken</li>
+              <li>Hot Sauce</li>
+              <li>White Crust</li>
+            </ul>
+          </div>
+        </div>
+    </article>
     <footer class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</footer>
   </main>
   <script type="text/javascript" src="js/main.js"></script>
 </body>
-
-</html>
 </html>

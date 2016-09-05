@@ -14,3 +14,7 @@
 
 ###### `views/js/main.js`
 - changePizzaSizes changes width % rather than px conversion
+
+###### `views/pizza.html`
+- removed manually-inserted inline styles
+- semantic html

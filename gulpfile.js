@@ -21,16 +21,7 @@ var paths = {
     content: ['src/*.html']
 }
 
-gulp.task('views', function() {
-    gulp.src('src/views/*.html')
-        .pipe(minifyhtml())
-        .pipe(critical({base: 'dist/views',  inline: true, minify: true}))
-        .pipe(gulp.dest('dist/views'));
-
-    gulp.src('src/views/js/main.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('dist/views/js'));
-
+gulp.task('view-images', function() {
     gulp.src('src/views/images/*')
         .pipe(responsive({
             'pizzeria.jpg': [
@@ -47,6 +38,10 @@ gulp.task('views', function() {
                 rename: { suffix: '_480'}
             },
             {
+                width: 640,
+                rename: { suffix: '_640'}
+            },
+            {
                 width: 960,
                 rename: { suffix: '_960'}
             }],
@@ -60,6 +55,17 @@ gulp.task('views', function() {
             withMetadata: false
         }))
         .pipe(gulp.dest('dist/views/images/'));
+});
+
+gulp.task('views', function() {
+    gulp.src('src/views/*.html')
+        .pipe(minifyhtml())
+        .pipe(critical({base: 'dist/views',  inline: true, minify: true}))
+        .pipe(gulp.dest('dist/views'));
+
+    gulp.src('src/views/js/main.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/views/js'));
 
     gulp.src('src/views/css/*.css')
         .pipe(cleancss())
@@ -138,5 +144,6 @@ gulp.task('critical', function() {
 
 
 
-gulp.task('default', ['webserver','watch','scripts', 'styles', 'content', 'images','views','critical']);
+gulp.task('default', ['webserver','watch','scripts', 'styles',
+            'content', 'view-images','images','views','critical']);
 // gulp.task('default', ['webserver','watch','views']);

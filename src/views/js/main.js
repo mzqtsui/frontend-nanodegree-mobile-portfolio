@@ -368,23 +368,21 @@ var pizzaElementGenerator = function(i) {
       ul;                         // the list of ingredients
 
   pizzaContainer = document.createElement("div");
-  pizzaImageContainer = document.createElement("div");
-  pizzaImage = document.createElement("img");
-  pizzaDescriptionContainer = document.createElement("div");
-
   pizzaContainer.classList.add("randomPizzaContainer");
-  pizzaContainer.style.width = "33.33%";
-  pizzaContainer.style.height = "325px";
-  pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
-  pizzaImageContainer.style.width="35%";
 
+  pizzaImageContainer = document.createElement("div");
+  pizzaImageContainer.classList.add("pizzaImageContainer");
+
+  pizzaDescriptionContainer = document.createElement("div");
+  pizzaDescriptionContainer.classList.add("pizzaDescriptionContainer");
+
+  pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
+
+  pizzaImage = document.createElement("img");
   pizzaImage.src = "images/pizza.png";
   pizzaImage.classList.add("img-responsive");
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
-
-
-  pizzaDescriptionContainer.style.width="65%";
 
   pizzaName = document.createElement("h4");
   pizzaName.innerHTML = randomName();
