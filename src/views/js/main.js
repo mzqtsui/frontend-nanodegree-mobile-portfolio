@@ -396,6 +396,20 @@ var pizzaElementGenerator = function(i) {
   return pizzaContainer;
 };
 
+// Create pizza element based on HTML5 <template>
+var newPizzaElementGenerator = function(i) {
+  var pizzaTemplate = document.querySelector("#pizzaTemplate");
+  var pizzaContainer = pizzaTemplate.content.querySelector(".randomPizzaContainer");
+  var pizzaName = pizzaTemplate.content.querySelector(".pizzaName");
+  var pizzaIngredients = pizzaTemplate.content.querySelector(".pizzaIngredients");
+
+  pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
+  pizzaName.innerHTML = randomName();
+  pizzaIngredients.innerHTML = makeRandomPizza();
+
+  return document.importNode(pizzaTemplate.content, true);
+};
+
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function

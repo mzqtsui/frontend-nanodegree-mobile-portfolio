@@ -8,18 +8,6 @@
   <link rel="stylesheet" href="css/bootstrap-grid.css">
 </head>
 <body>
-  <template id="pizzaTemplate">
-    <section class="randomPizzaContainer">
-      <picture class="pizzaImageContainer">
-        <img src="images/pizza.png" class="img-responsive">
-      </picture>
-      <div class="pizzaDescriptionContainer">
-        <h4 class="pizzaName"></h4>
-        <ul class="pizzaIngredients">
-        </ul>
-      </div>
-    </section>
-  </template>
   <main class="container">
     <header class="row">
       <div class="col-md-12">
@@ -89,36 +77,48 @@
       </div>
     </article>
     <article id="randomPizzas" class="row">
-      <div id="pizza0" class="randomPizzaContainer">
-          <div class="pizzaImageContainer">
+      <section id="pizza0" class="randomPizzaContainer">
+        <picture class="pizzaImageContainer">
+          <img src="images/pizza.png" class="img-responsive">
+        </picture>
+        <div class="pizzaDescriptionContainer">
+          <h4 class="pizzaName">The Udacity Special</h4>
+          <ul class="pizzaIngredients">
+            <li>Turkey</li>
+            <li>Tofu</li>
+            <li>Cauliflower</li>
+            <li>Sun Dried Tomatoes</li>
+            <li>Velveeta Cheese</li>
+            <li>Red Sauce</li>
+            <li>Whole Wheat Crust</li>
+          </ul>
+        </div>
+      </section>
+      <section id="pizza1" class="randomPizzaContainer">
+        <picture class="pizzaImageContainer">
+          <img src="images/pizza.png" class="img-responsive">
+        </picture>
+        <div class="pizzaDescriptionContainer">
+          <h4 class="pizzaName">The Cameron Special</h4>
+          <ul class="pizzaIngredients">
+            <li>Chicken</li>
+            <li>Hot Sauce</li>
+            <li>White Crust</li>
+          </ul>
+        </div>
+      </section>
+      <template id="pizzaTemplate">
+        <section class="randomPizzaContainer">
+          <picture class="pizzaImageContainer">
             <img src="images/pizza.png" class="img-responsive">
-          </div>
+          </picture>
           <div class="pizzaDescriptionContainer">
-            <h4>The Udacity Special</h4>
-            <ul>
-              <li>Turkey</li>
-              <li>Tofu</li>
-              <li>Cauliflower</li>
-              <li>Sun Dried Tomatoes</li>
-              <li>Velveeta Cheese</li>
-              <li>Red Sauce</li>
-              <li>Whole Wheat Crust</li>
+            <h4 class="pizzaName"></h4>
+            <ul class="pizzaIngredients">
             </ul>
           </div>
-        </div>
-        <div id="pizza1" class="randomPizzaContainer">
-          <div class="pizzaImageContainer">
-            <img src="images/pizza.png" class="img-responsive">
-          </div>
-          <div class="pizzaDescriptionContainer">
-            <h4>The Cameron Special</h4>
-            <ul>
-              <li>Chicken</li>
-              <li>Hot Sauce</li>
-              <li>White Crust</li>
-            </ul>
-          </div>
-        </div>
+        </section>
+      </template>
     </article>
     <footer class="col-md-12">Thanks for visiting! &copy; 2014 Udacity</footer>
   </main>

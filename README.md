@@ -14,6 +14,7 @@
 
 ###### `views/js/main.js`
 - changePizzaSizes changes width % rather than px conversion
+- `<template>`-based pizza generation
 
 ###### `views/pizza.html`
 - removed manually-inserted inline styles
