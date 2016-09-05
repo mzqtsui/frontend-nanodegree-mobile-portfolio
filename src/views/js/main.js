@@ -534,9 +534,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var movingPizzaBox = document.querySelector("#movingPizzas1");
   // Reduced number of pizzas
   for (var i = 0; i < 30; i++) {
-    var elem = document.createElement('img');
+    var elem = document.createElement('div');
     elem.className = 'mover';
-    elem.src = "images/pizza.png";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     movingPizzaBox.appendChild(elem);

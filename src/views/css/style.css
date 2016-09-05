@@ -31,8 +31,10 @@ form {
 
 .mover {
   position: fixed;
-  width: 73.333px;
-  height: 100px;
+  width: 80px;
+  height: 103px;
+  background-image: url("../images/pizza.png");
+  background-size: 80px 103px;
   z-index: -1;
 }
 
