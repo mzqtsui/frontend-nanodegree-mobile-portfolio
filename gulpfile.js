@@ -21,7 +21,7 @@ var paths = {
 }
 
 gulp.task('view-images', function() {
-    gulp.src('src/views/images/*')
+    return gulp.src('src/views/images/*')
         .pipe(responsive({
             'pizzeria.jpg': [
             {
@@ -62,35 +62,31 @@ gulp.task('view-images', function() {
 });
 
 gulp.task('views', function() {
-    gulp.src('src/views/pizza.html')
-        .pipe(critical({base: 'dist/views',  inline: true, minify: true, inlineImages: true}))
+    return gulp.src('src/views/pizza.html')
         .pipe(minifyhtml())
         .pipe(gulp.dest('dist/views'));
+});
 
-    gulp.src('src/views/js/main.js')
+gulp.task('view-scripts', function() {
+    return gulp.src('src/views/js/main.js')
         .pipe(uglify())
         .pipe(gulp.dest('dist/views/js'));
+});
 
-    gulp.src('src/views/css/*.css')
+gulp.task('scripts', function() {
+    return gulp.src(paths.scripts)
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js/'));
+});
+
+gulp.task('view-styles', function() {
+    return gulp.src('src/views/css/*.css')
         .pipe(cleancss())
         .pipe(gulp.dest('dist/views/css/'));
 });
 
-gulp.task('scripts', function() {
-    gulp.src(paths.scripts)
-        .pipe(uglify())
-        // .pipe(sourcemaps.init())
-        // .pipe(babel({
-        //     presets: ['es2015']
-        // }))
-        // .pipe(concat('app.js'))
-        // .pipe(sourcemaps.write('.'))
-        // .pipe(rename('app.min.js'))
-        .pipe(gulp.dest('dist/js/'));
-});
-
 gulp.task('styles', function() {
-    gulp.src(paths.styles)
+    return gulp.src(paths.styles)
         .pipe(cleancss())
         .pipe(gulp.dest('dist/css'));
 });
@@ -126,27 +122,31 @@ gulp.task('images', function() {
 gulp.task('watch', function() {
     gulp.watch(paths.scripts, ['scripts']);
     gulp.watch(paths.styles, ['styles']);
-    gulp.watch(paths.content, ['content','critical']);
+    gulp.watch(paths.content, ['content']);
     gulp.watch(paths.images, ['images']);
     gulp.watch('src/views/*', ['views']);
 });
 
-gulp.task('webserver', function() {
-    gulp.src('dist/')
+gulp.task('webserver', ['critical'],function() {
+    return gulp.src('dist/')
         .pipe(webserver({
             livereload: true,
             port: 9000
         }));
 });
 
-gulp.task('critical', function() {
+gulp.task('critical', ['content', 'scripts', 'styles', 'images'], function() {
     return gulp.src('dist/*.html')
         .pipe(critical({base: 'dist/',  inline: true, minify: true}))
         .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('critical-views', ['views', 'view-images', 'view-scripts', 'view-styles'], function() {
+    return gulp.src('dist/views/*.html')
+        .pipe(critical({base: 'dist/views/',  inline: true, minify: true}))
+        .pipe(gulp.dest('dist/views/'));
+});
 
 
-gulp.task('default', ['webserver','watch','scripts', 'styles',
-            'content', 'view-images','images','views','critical']);
+gulp.task('default', ['webserver','watch', 'critical', 'critical-views']);
 // gulp.task('default', ['webserver','watch','views']);
