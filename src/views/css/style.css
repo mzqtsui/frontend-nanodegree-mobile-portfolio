@@ -42,6 +42,15 @@ form {
   display: flex;
   width: 33.33%;
   height: 325px;
+  transition: width 0.1s;
+}
+
+.small .randomPizzaContainer{
+  width: 25%;
+}
+
+.large .randomPizzaContainer{
+  width: 50%;
 }
 
 .pizzaImageContainer {
@@ -82,3 +91,4 @@ nav a {
   background: rgba(0,0,0,0.5);
   color: white;
 }
+

@@ -14,7 +14,7 @@
 - generate optimized images with `gulp-responsive`
 
 ###### `views/js/main.js`
-- changePizzaSizes changes width % rather than px conversion
+- changePizzaSizes adds/removes small/large classes that change width %
 - `<template>`-based pizza generation
 - `document.body.scrollTop` only called once in `updatePositions()`
 - 'selectRandomIngredient()' to replace multiple selectRandom functions that do basically the same thing
