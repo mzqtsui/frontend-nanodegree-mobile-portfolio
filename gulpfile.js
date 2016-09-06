@@ -46,8 +46,7 @@ gulp.task('view-images', function() {
             }],
             'pizza.png': [
             {
-                width: 140,
-                rename: { suffix: '_140' }
+                width: '100%'
             },
             {
                 width: 80,
