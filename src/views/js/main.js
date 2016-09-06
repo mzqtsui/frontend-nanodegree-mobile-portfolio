@@ -379,10 +379,10 @@ var pizzaElementGenerator = function(i) {
 
 // Create pizza element based on HTML5 <template>
 var newPizzaElementGenerator = function(i) {
-  var pizzaTemplate = document.querySelector("#pizzaTemplate");
-  var pizzaContainer = pizzaTemplate.content.querySelector(".randomPizzaContainer");
-  var pizzaName = pizzaTemplate.content.querySelector(".pizzaName");
-  var pizzaIngredients = pizzaTemplate.content.querySelector(".pizzaIngredients");
+  var pizzaTemplate = document.getElementById("pizzaTemplate");
+  var pizzaContainer = pizzaTemplate.content.getElementsByClassName("randomPizzaContainer");
+  var pizzaName = pizzaTemplate.content.getElementsByClassName("pizzaName");
+  var pizzaIngredients = pizzaTemplate.content.getElementsByClassName("pizzaIngredients");
 
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
   pizzaName.innerHTML = randomName();
@@ -395,11 +395,11 @@ var newPizzaElementGenerator = function(i) {
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
 
-  var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+  var windowWidth = document.getElementById("randomPizzas").offsetWidth;
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
-    var pizzaSize = document.querySelector("#pizzaSize");
+    var pizzaSize = document.getElementById("pizzaSize");
     switch(size) {
       case "1":
         pizzaSize.innerHTML = "Small";
@@ -419,7 +419,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var pizzaContainers = document.querySelectorAll(".randomPizzaContainer");
+    var pizzaContainers = document.getElementsByClassName("randomPizzaContainer");
     var newWidth;
 
     switch(size) {
@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
   // Get container once, rather than every loop
-  var movingPizzaBox = document.querySelector("#movingPizzas1");
+  var movingPizzaBox = document.getElementById("movingPizzas1");
   // Reduced number of pizzas
   for (var i = 0; i < 30; i++) {
     var elem = document.createElement('div');

@@ -18,6 +18,7 @@
 - `<template>`-based pizza generation
 - `document.body.scrollTop` only called once in `updatePositions()`
 - 'selectRandomIngredient()' to replace multiple selectRandom functions that do basically the same thing
+- `querySelector` replaced with `getElementsByClassName` or `getElementById` where appropriate
 
 ###### `views/pizza.html`
 - removed manually-inserted inline styles
