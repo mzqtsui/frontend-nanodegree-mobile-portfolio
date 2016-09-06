@@ -17,8 +17,11 @@
 - changePizzaSizes adds/removes small/large classes that change width %
 - `<template>`-based pizza generation
 - `document.body.scrollTop` only called once in `updatePositions()`
+- loop variables declared in initialisation of for loop
 - 'selectRandomIngredient()' to replace multiple selectRandom functions that do basically the same thing
 - `querySelector` replaced with `getElementsByClassName` or `getElementById` where appropriate
+- reduced DOM calls on #randomPizzas inside resizePizzas
+- dynamically generate number of pizzas based on screen size
 
 ###### `views/pizza.html`
 - removed manually-inserted inline styles
